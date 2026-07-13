@@ -1,0 +1,26 @@
+.home-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  text-align: center;
+
+  background-image: url('https://i.pinimg.com/1200x/29/79/b8/2979b8a688b0a8560f4216d67c016a9b.jpg'); 
+  padding: 30px 50px;
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+
+.home-title {
+  color: #4b2e83;   
+  font-size: 48px;
+  margin-bottom: 23px;
+}
+
+
+.home-text {
+  color: #333;    
+  font-size: 18px;
+}
