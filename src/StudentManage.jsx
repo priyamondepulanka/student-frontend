@@ -16,13 +16,13 @@ function App() {
   
  
     useEffect(() => {
-        fetch("http://localhost:8000/")
+        fetch("https://student-backend-rij0.onrender.com/")
             .then((res) => res.text())
             .then((data) => setMessage(data));
     }, []);
 
     const loadStudents = () => {
-    fetch("http://localhost:8000/all/students/")
+    fetch("https://student-backend-rij0.onrender.com/all/students/")
         .then((res) => res.json())
         .then((data) => setStudents(data));
 };
@@ -32,7 +32,7 @@ useEffect(() => {
 }, []);
  const addStudent = (e) => {
     e.preventDefault();
-    fetch("http://localhost:8000/create/student", {
+    fetch("https://student-backend-rij0.onrender.com/create/student", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, clubName }), 
@@ -42,14 +42,14 @@ useEffect(() => {
     });
    };
 const verifyStudent = (studentEmail) => {
-    fetch("http://localhost:8000/update/isVerified", {
+    fetch("https://student-backend-rij0.onrender.com/update/isVerified", {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: studentEmail, isVerified: true }),
     }).then(() => loadStudents());
 };
 const deleteStudent = (studentEmail) => {
-    fetch("http://localhost:8000/delete/student", {
+    fetch("https://student-backend-rij0.onrender.com/delete/student", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: studentEmail }),
