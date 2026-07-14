@@ -22,7 +22,7 @@ function App() {
     }, []);
 
     const loadStudents = () => {
-    fetch("http://localhost:8000/all/students")
+    fetch("http://localhost:8000/all/students/")
         .then((res) => res.json())
         .then((data) => setStudents(data));
 };
@@ -32,7 +32,7 @@ useEffect(() => {
 }, []);
  const addStudent = (e) => {
     e.preventDefault();
-    fetch("http://localhost:8000/create/student/", {
+    fetch("http://localhost:8000/create/student", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, clubName }), 
@@ -71,11 +71,10 @@ function App() {
 }
  return (
     <div>
-      <h1><i>Student Club Membership</i></h1>
+      <h1 className="home-title"><i>Student Club Membership</i></h1>
       <p>Backend says: <b>{message}</b></p>
 
-      {/* create form */}
-     {/* create form */}
+      
 <form className="student-form" onSubmit={addStudent}>
   <input
     value={name}
@@ -104,7 +103,7 @@ function App() {
         <td>Name</td>
         <td>Email</td>
         <td>Club Name</td>
-        <td>Is Verification</td>
+        <td>Is Verified</td>
         <td>Delete</td>
       </tr>
     </thead>
@@ -116,7 +115,7 @@ function App() {
           <td>{s.clubName}</td>
           <td>
             <button onClick={() => verifyStudent(s.email)}>
-              {s.isVerified ? "Verified ✅" : "Verify"}
+              {s.isVerified ? "Verified " : "Verify"}
             </button>
           </td>
           <td>
